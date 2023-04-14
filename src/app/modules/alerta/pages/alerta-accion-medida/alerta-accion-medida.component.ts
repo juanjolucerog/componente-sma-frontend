@@ -161,7 +161,6 @@ export class AlertaAccionMedidaComponent implements OnInit {
     this.dataModalDenuncias.display = 'none';
   }
   registerAccionMedida() {
-    const now = new Date();
     var data = null;
 
     if (this.dataModal.selectId == 0) {
@@ -171,11 +170,8 @@ export class AlertaAccionMedidaComponent implements OnInit {
         data = {
           idAlerta: this.dataModal.alertaId,
           idAccion: this.dataModal.selectId,
-          detalleAccion: this.dataModal.detalle,
-          idMedidaProteccion: null,
-          detalleMedidaProteccion: null,
-          usuarioRegistro: 'demo',
-          fechaRegistro: now.toLocaleDateString(),
+          comentario: this.dataModal.detalle,
+          usuarioRegistro: 'demo'
         };
 
         this.http
@@ -190,12 +186,9 @@ export class AlertaAccionMedidaComponent implements OnInit {
       } else {
         data = {
           idAlerta: this.dataModal.alertaId,
-          idAccion: null,
-          detalleAccion: null,
           idMedidaProteccion: this.dataModal.selectId,
-          detalleMedidaProteccion: this.dataModal.detalle,
-          usuarioRegistro: 'demo',
-          fechaRegistro: now.toLocaleDateString(),
+          comentario: this.dataModal.detalle,
+          usuarioRegistro: 'demo'
         };
 
         this.http

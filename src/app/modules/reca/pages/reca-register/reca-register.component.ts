@@ -184,7 +184,7 @@ export class RecaRegisterComponent implements OnInit {
 
   getCatalogo(catalogoID: number) {
     this.http
-      .get('http://172.16.60.98:7007/api-integrador/catalogos', {
+      .get('http://localhost:8082/api-integrador/catalogos', {
         params: {
           codigoPadre: catalogoID,
         },
@@ -378,7 +378,7 @@ export class RecaRegisterComponent implements OnInit {
   onClickRegister() {
     this.http
       .post(
-        'http://172.16.60.98:7007/api-integrador/fichas-reca',
+        'http://localhost:8082/api-integrador/fichas-reca',
         this.modelFicha
       )
       .subscribe((response: any) => {
